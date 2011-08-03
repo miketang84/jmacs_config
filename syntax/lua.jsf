@@ -4,7 +4,7 @@
 =Bad		bold red
 =Comment 	green
 =Constant 	bold red
-=String     cyan
+=String     red
 =Special    bold magenta
 =Special2   bold yellow
 =Escape 	bold cyan
