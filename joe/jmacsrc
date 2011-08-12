@@ -265,7 +265,7 @@
 
 -lmargin 1		Left margin
 
--rmargin 100		Right margin
+-rmargin 200		Right margin
 
 	-flowed			Put one space after intermediate paragraph lines
 				for support of flowed text.
@@ -903,7 +903,7 @@ eop		^[ n		(uemacs)
 eop		^[ }
 execmd		^[ x
  insc		^C		(uemacs)
- ffirst		^S		Search forward
+ffirst		^X f		Search forward
 isrch		^S
  ffirst		^\
  psh,markk,filt,query	^[ |		Filter block
