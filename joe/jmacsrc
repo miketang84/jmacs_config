@@ -137,7 +137,7 @@
 
 -joe_state	Use ~/.joe_state file
 
- -mouse		Enable mouse support
+-mouse		Enable mouse support
 
  -joexterm	If you are using Joe's modified Xterm, which makes -mouse
 		mode work better (cut & paste work transparently).
@@ -838,7 +838,7 @@ lose,query		^X k			Kill buffer in window
  lose,query,edit		^X ^V		Edit a file: no orphaned buffers
 reload			^X ^R			Reload current file
 
-psh,drop,fwrdc-,query,markk,blkdel	^[ c	Cut to char
+ psh,drop,fwrdc-,query,markk,blkdel	^[ c	Cut to char
 
 psh,markk,if,"markv",then,blksave,bol,">>",eol,query,else,save,bol,deleol,">>",query,endif	^X a
 
@@ -882,7 +882,7 @@ deleol		^J		Delete to end of line
 dellin		^K
 delw		^[ d		Delete word
 dnarw		.kd		Go down
-dnarw		^N
+ dnarw		^N
 dnarw		^[ O B
 dnarw		^[ [ B
  dnarw		^# B
@@ -915,7 +915,7 @@ insf		^X i		Insert a file
  yapp		^[ ^W		Append next kill
 line		^X g		Goto line (uemacs)
 ltarw		.kl		Go left
-ltarw		^B
+ ltarw		^B
 ltarw		^[ O D
 ltarw		^[ [ D
  ltarw          ^# D
@@ -939,13 +939,18 @@ redo		^^		Redo changes
 rsrch		^R		Incremental search backwards
   
   Defined by Daoge
- 
+
+arg,"12",rtn,dnarw    ^N
+arg,"12",rtn,uparw    ^P 
+arg,"5",rtn,dnslide   ^F
+arg,"5",rtn,upslide   ^B
+
 if,"markv",then,rindent-!,else,markk,rindent-!,endif	^[ =
 if,"markv",then,lindent-!,else,markk,lindent-!,endif	^[ -
 bol,markb,eol,markk,rindent,nmark,eol  ^I
 bol,markb,eol,markk,lindent,nmark,bol  ^[ i
-finish		^\
- finish      ^@ ^M
+finish		^[ \
+finish      ^[ ^M
 fnext		^[ /
 fnext		^]
 bol,markb,eol,markk,copy,nmark,bol,msg,"one line copied",rtn  ^[ l
@@ -963,7 +968,7 @@ markk       ^Z
 
  markk,rindent	^[ ^\
 rtarw		.kr		Go right
-rtarw		^F
+ rtarw		^F
 rtarw		^[ O C
 rtarw		^[ [ C
  rtarw          ^# C
@@ -983,7 +988,7 @@ undo		^U		Undo changes
 redo		^[ r
 
 uparw		.ku		Go up
-uparw		^P
+ uparw		^P
 uparw		^[ O A
 uparw		^[ [ A
  uparw		^# A
@@ -998,13 +1003,13 @@ abort		^G
 abort		^C
 complete	^I
 dnarw,eol	.kd		Go down
-dnarw,eol	^N
+ dnarw,eol	^N
 dnarw,eol	^[ O B
 dnarw,eol	^[ [ B
  dnarw,eol	^# B
 uparw,eol	.ku		Go up
  uparw,eol	^# A
-uparw,eol	^P
+ uparw,eol	^P
 uparw,eol	^[ O A
 uparw,eol	^[ [ A
 
