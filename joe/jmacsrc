@@ -137,7 +137,7 @@
 
 -joe_state	Use ~/.joe_state file
 
--mouse		Enable mouse support
+ -mouse		Enable mouse support
 
  -joexterm	If you are using Joe's modified Xterm, which makes -mouse
 		mode work better (cut & paste work transparently).
@@ -952,7 +952,7 @@ bol,markb,eol,markk,lindent,nmark,bol  ^[ i
 finish		^[ \
 finish      ^[ ^M
 fnext		^[ /
-fnext		^]
+fnext		^\
 bol,markb,eol,markk,copy,nmark,bol,msg,"one line copied",rtn  ^[ l
 setmark		^[ m		Set bookmark
 gomark		^[ ,
