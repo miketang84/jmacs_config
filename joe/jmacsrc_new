@@ -913,20 +913,42 @@ isrch		^S
  psh,markk,filt,query	^[ |		Filter block
  format		^[ q		Format paragraph
 gomark		^/		Goto bookmark
+ groww		^X ^		Enlarge window
+ groww		^X z		(uemacs)
 insf		^X i		Insert a file
  yapp		^[ ^W		Append next kill
+line		^X g		Goto line (uemacs)
 ltarw		.kl		Go left
+ ltarw		^B
 ltarw		^[ O D
 ltarw		^[ [ D
-
-
+ ltarw          ^# D
+ mode		^[ ^[		Change modes
+menu,"root",rtn	^[ ^[
+nbuf		^X ^B		Next buffer in current window
+nbuf		^X x		(uemacs)
+ nextpos		^K =		Goto next position in position history
+nextword	^[ f		Goto next word
+notmod		^[ ~		Not modified
+open		^O		Split line
+ open		^[ ^O
+ pbuf		^X b		Previous buffer in current window
+ prevpos		^K -	Goto previous position in position history
+prevword	^[ b		Previous word
+qrepl		^[ %		Query replace
+ qrepl		^[ r		Query replace (uemacs)
+qrepl		^[ ^R		Query replace (uemacs)
+redo		^^		Redo changes
+ rfirst		^R		Search backwards
+rsrch		^R		Incremental search backwards
+  
   =====================>> Defined by Daoge <<=====================
 
 
- if,"markv",then,rindent-!,else,markk,rindent-!,endif	^[ =
- if,"markv",then,lindent-!,else,markk,lindent-!,endif	^[ -
- bol,markb,eol,markk,rindent,nmark,eol  ^I
- bol,markb,eol,markk,lindent,nmark,bol  ^[ i
+if,"markv",then,rindent-!,else,markk,rindent-!,endif	^[ =
+if,"markv",then,lindent-!,else,markk,lindent-!,endif	^[ -
+bol,markb,eol,markk,rindent,nmark,eol  ^I
+bol,markb,eol,markk,lindent,nmark,bol  ^[ i
 
 
  ; cursor operations 
@@ -953,21 +975,14 @@ pgup		^[ z
 line        ^[ u
 bof			^[ q
 eof			^[ w
-eol			^[ e
-bol			^[ a
-nextword	^[ f		Goto next word
-prevword	^[ b		Previous word
-
- ; block
-markb 		^Q
-markk 		^W
 
 
  ; buffer operations
 savenow		^S      save file immediately
 undo		^Z		Undo changes
 redo		^[ Z
-copy		^C
+ copy		^C
+abort		^Q
 
 bol,markb,eol,markk,msg,"one line selected",rtn  ^Y
 yank		^V		Yank deleted text
@@ -975,7 +990,6 @@ yankpop		^[ V		Yank-pop
 
  ; searching and replace
 isrch       ^F
-rsrch       ^R
  fnext		^.
 finish      ^[ ^M
 qrepl		^[ r 	
@@ -995,10 +1009,11 @@ nbuf        ^[ X
  ; marks
 setmark		^[ m		Set bookmark
 gomark		^[ ,
+markk       ^Z
 
 
  ; miscs
- run		^[ !
+run		^ !
 execmd	^[ M
 
  ======================================================================================
