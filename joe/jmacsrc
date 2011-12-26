@@ -673,6 +673,10 @@ defm3drag	M3DRAG		Select a region of lines
 
 xtmouse		^[ [ M		Introduces an xterm mouse event
 
+
+
+ ======================================================================================
+
 :main			Text editing window
 :inherit windows
 
@@ -901,7 +905,7 @@ eol		^[ [ F
 eol		^[ [ 4 ~
 eop		^[ n		(uemacs)
 eop		^[ }
-execmd		^[ x
+ execmd		^[ x
  insc		^C		(uemacs)
 ffirst		^X f		Search forward
 isrch		^S
@@ -938,64 +942,79 @@ redo		^^		Redo changes
  rfirst		^R		Search backwards
 rsrch		^R		Incremental search backwards
   
-  Defined by Daoge
+  =====================>> Defined by Daoge <<=====================
 
-arg,"12",rtn,dnarw    ^N
-arg,"12",rtn,uparw    ^P 
-arg,"5",rtn,dnslide   ^F
-arg,"5",rtn,upslide   ^B
 
 if,"markv",then,rindent-!,else,markk,rindent-!,endif	^[ =
 if,"markv",then,lindent-!,else,markk,lindent-!,endif	^[ -
 bol,markb,eol,markk,rindent,nmark,eol  ^I
 bol,markb,eol,markk,lindent,nmark,bol  ^[ i
-finish		^[ \
+
+
+ ; cursor operations 
+rtarw		.kr		Go right
+rtarw		^[ O C
+rtarw		^[ [ C
+rtarw		^[ l
+
+uparw		.ku		Go up
+uparw		^[ O A
+uparw		^[ [ A
+uparw		^[ k
+
+dnarw		^[ j
+ltarw		^[ h
+
+tomatch		^G		Goto matching parenthasis (joe)
+upslide,upslide,upslide,upslide		MWUP
+
+arg,"20",rtn,dnarw    ^[ J 
+arg,"20",rtn,uparw    ^[ K
+pgdn		^[ v
+pgup		^[ z
+line        ^[ u
+
+
+ ; buffer operations
+savenow		^S      save file immediately
+undo		^Z		Undo changes
+redo		^[ Z
+copy		^C
+abort		^Q
+
+bol,markb,eol,markk,msg,"one line selected",rtn  ^Y
+yank		^V		Yank deleted text
+yankpop		^[ V		Yank-pop
+
+ ; searching and replace
+isrch       ^F
+fnext		^.
 finish      ^[ ^M
-fnext		^[ /
-fnext		^\
-bol,markb,eol,markk,copy,nmark,bol,msg,"one line copied",rtn  ^[ l
-setmark		^[ m		Set bookmark
-gomark		^[ ,
+qrepl		^[ r 	
+
+
+ ; programming
 tag		    ^[ .		Tag search
 prevpos     ^[ ;
 nextpos     ^[ '
-bufed       ^[ :
-nbuf        ^[ "
-edit        ^[ q
-edit        ^X n
- abort       ^X c
+
+ ; window and buffers operations
+splitw		^X 2		Split window
+nbuf        ^[ C
+nbuf        ^[ X
+
+
+ ; marks
+setmark		^[ m		Set bookmark
+gomark		^[ ,
 markk       ^Z
 
- markk,rindent	^[ ^\
-rtarw		.kr		Go right
- rtarw		^F
-rtarw		^[ O C
-rtarw		^[ [ C
- rtarw          ^# C
-run		^[ !
-save		^X ^W		Write file
-shrinkw		^X ^Z		(uemacs)
-splitw		^X 2		Split window
-stat		^X l		Gnu-Emacs Show status
-stat		^X ?		JED
-stat		^X =		Gnu-Emacs
-swap		^X ^X		Swap mark and cursor
-tomatch		^G		Goto matching parenthasis (joe)
- tomatch		^[ ^F		(uemacs)
-txt		^X t		Prompt for text to insert
-undo		^U		Undo changes
- undo		^X u
-redo		^[ r
 
-uparw		.ku		Go up
- uparw		^P
-uparw		^[ O A
-uparw		^[ [ A
- uparw		^# A
- upslide		^X ^P		Slide up (uemacs)
-upslide,upslide,upslide,upslide		MWUP
-yank		^Y		Yank deleted text
-yankpop		^[ y		Yank-pop
+ ; miscs
+run		^ !
+execmd	^[ M
+
+ ======================================================================================
 
 :prompt			Prompt windows
 :inherit main
@@ -1012,6 +1031,13 @@ uparw,eol	.ku		Go up
  uparw,eol	^P
 uparw,eol	^[ O A
 uparw,eol	^[ [ A
+
+
+
+
+
+
+ ======================================================================================
 
 :menu			Selection menus
 :inherit windows
@@ -1081,11 +1107,17 @@ uparwmenu	^[ [ A
 uparwmenu	^[ O A
 defm2down	M2DOWN		Hits return key
 
+
+ =====================================================================================
 :querysr		Search & replace query window
 type		^@ TO ÿ
 
+
+ =====================================================================================
 :query			Single-key query window
 :inherit windows
 
+
+ =====================================================================================
 :querya			Single-key query window for quoting
 type		^@ TO ÿ
