@@ -961,7 +961,7 @@ prevword	^[ b		Previous word
  ; block
 markb 		^Q
 markk 		^W
-
+blkdel		^D
 
  ; buffer operations
 savenow		^S      save file immediately
@@ -972,13 +972,15 @@ copy		^C
 bol,markb,eol,markk,msg,"one line selected",rtn  ^Y
 yank		^V		Yank deleted text
 yankpop		^[ V		Yank-pop
+open		^L
 
  ; searching and replace
 isrch       ^F
 rsrch       ^R
- fnext		^.
-finish      ^[ ^M
+fnext		^[ /
+finish      ^[ \
 qrepl		^[ r 	
+
 
 
  ; programming
