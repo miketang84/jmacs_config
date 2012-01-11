@@ -989,7 +989,7 @@ prevpos     ^[ ;
 nextpos     ^[ '
 
  ; window and buffers operations
-splitw		^X 2		Split window
+splitw		^H		 Split window
 nbuf        ^[ C
 nbuf        ^[ X
 
@@ -1001,7 +1001,8 @@ gomark		^[ ,
 
  ; miscs
  run		^[ !
-execmd	^[ M
+execmd	^[ o
+menu,"root",rtn	 ^[ ^[
 
  ======================================================================================
 
