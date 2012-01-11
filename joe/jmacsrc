@@ -958,12 +958,15 @@ bol			^[ a
 nextword	^[ f		Goto next word
 prevword	^[ b		Previous word
 
+line		^[ y
+
  ; block
 markb 		^Q
 markk 		^W
 blkdel		^D
 
  ; buffer operations
+edit		^O
 savenow		^S      save file immediately
 undo		^Z		Undo changes
 redo		^[ Z
@@ -973,6 +976,10 @@ bol,markb,eol,markk,msg,"one line selected",rtn  ^Y
 yank		^V		Yank deleted text
 yankpop		^[ V		Yank-pop
 open		^L
+
+if,"markv",then,rindent-!,else,markl,rindent-!,endif	^[ i
+if,"markv",then,lindent-!,else,markl,lindent-!,endif	^[ I
+
 
  ; searching and replace
 isrch       ^F
@@ -990,8 +997,13 @@ nextpos     ^[ '
 
  ; window and buffers operations
 splitw		^H		 Split window
-nbuf        ^[ C
-nbuf        ^[ X
+nextw		^[ "
+prevw		^[ :
+tw0			^[ -
+tw1			^[ _
+
+nbuf        ^[ c
+pbuf        ^[ x
 
 
  ; marks
