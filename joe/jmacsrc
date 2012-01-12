@@ -880,10 +880,6 @@ bufed		^X b
  bknd		^[ '		Shell window
 crawlr		^X >		Scroll to the right
 crawll		^X <		Scroll to the left
-delch		.kD		Delete character
-delch		^D
-deleol		^J		Delete to end of line
-dellin		^K
 delw		^[ d		Delete word
 dnarw		.kd		Go down
  dnarw		^N
@@ -961,21 +957,26 @@ prevword	^[ b		Previous word
 line		^[ y
 
  ; block
-markb 		^Q
-markk 		^W
-blkdel		^D
+drop 		^Q
+psh,markk,blkdel,msg,"Block cutted",rtn 		^W
 
  ; buffer operations
 edit		^O
 savenow		^S      save file immediately
 undo		^Z		Undo changes
 redo		^[ Z
-copy		^C
+psh,markk,copy,msg,"Block saved",rtn		^C
 
 bol,markb,eol,markk,msg,"one line selected",rtn  ^Y
 yank		^V		Yank deleted text
 yankpop		^[ V		Yank-pop
-open		^L
+markl		^L
+
+delch		.kD		Delete character
+delch		^D
+deleol		^J		Delete to end of line
+dellin		^K
+
 
 if,"markv",then,rindent-!,else,markl,rindent-!,endif	^[ i
 if,"markv",then,lindent-!,else,markl,lindent-!,endif	^[ I
