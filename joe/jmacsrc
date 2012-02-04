@@ -967,7 +967,7 @@ undo		^Z		Undo changes
 redo		^[ Z
 psh,markk,copy,msg,"Block saved",rtn		^C
 
-bol,markb,eol,markk,msg,"one line selected",rtn  ^Y
+eol,markb,bol,markk,msg,"one line selected",rtn  ^Y
 yank		^V		Yank deleted text
 yankpop		^[ V		Yank-pop
 markl		^L
