@@ -969,7 +969,7 @@ psh,markk,copy,msg,"Block saved",rtn		^C
 
 eol,markb,bol,markk,msg,"one line selected",rtn  ^Y
 yank		^V		Yank deleted text
-yankpop		^[ V		Yank-pop
+yankpop		^[ v		Yank-pop
 markl		^L
 
 delch		.kD		Delete character
@@ -978,8 +978,10 @@ deleol		^J		Delete to end of line
 dellin		^K
 
 
-if,"markv",then,rindent-!,else,markl,rindent-!,endif	^[ i
-if,"markv",then,lindent-!,else,markl,lindent-!,endif	^[ I
+if,"markv",then,rindent-!,else,markl,rindent-!,endif,drop	^[ i
+if,"markv",then,lindent-!,else,markl,lindent-!,endif,drop	^[ I
+if,"markv",then,rindent-!,else,markk,rindent-!,endif	^[ =
+if,"markv",then,lindent-!,else,markk,lindent-!,endif	^[ -
 
 
  ; searching and replace
