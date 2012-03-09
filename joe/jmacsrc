@@ -944,8 +944,8 @@ upslide,upslide,upslide,upslide		MWUP
 
 arg,"20",rtn,dnarw    ^[ J 
 arg,"20",rtn,uparw    ^[ K
-pgdn		^[ v
-pgup		^[ z
+ pgdn		^[ v
+ pgup		^[ z
 line        ^[ u
 bof			^[ q
 eof			^[ w
@@ -959,6 +959,7 @@ line		^[ y
  ; block
 drop 		^Q
 psh,markk,blkdel,msg,"Block cutted",rtn 		^W
+bof,markb,eof,markk								^A
 
  ; buffer operations
 edit		^O
@@ -981,7 +982,7 @@ dellin		^K
 if,"markv",then,rindent-!,else,markl,rindent-!,endif,drop	^[ i
 if,"markv",then,lindent-!,else,markl,lindent-!,endif,drop	^[ I
 if,"markv",then,rindent-!,else,markk,rindent-!,endif	^[ =
-if,"markv",then,lindent-!,else,markk,lindent-!,endif	^[ -
+if,"markv",then,lindent-!,else,markk,lindent-!,endif	^[ +
 
 
  ; searching and replace
@@ -1007,7 +1008,8 @@ tw1			^[ _
 
 nbuf        ^[ c
 pbuf        ^[ x
-
+bufed		^[ z
+abortbuf	^D
 
  ; marks
 setmark		^[ m		Set bookmark
@@ -1018,6 +1020,18 @@ gomark		^[ ,
  run		^[ !
 execmd	^[ o
 menu,"root",rtn	 ^[ ^[
+
+
+
+
+
+
+
+
+
+
+
+
 
  ======================================================================================
 
