@@ -950,7 +950,7 @@ line        ^[ u
 bof			^[ q
 eof			^[ w
 eol			^[ e
-bol			^[ a
+home			^[ a
 nextword	^[ f		Goto next word
 prevword	^[ b		Previous word
 
@@ -1010,6 +1010,7 @@ nbuf        ^[ c
 pbuf        ^[ x
 bufed		^[ z
 abortbuf	^D
+scratch		^N
 
  ; marks
 setmark		^[ m		Set bookmark
